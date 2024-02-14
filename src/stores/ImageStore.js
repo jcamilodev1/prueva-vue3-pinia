@@ -6,16 +6,22 @@ export const useImageStore = defineStore('ImageStore', () => {
   const status = ref(null)
 
   const uploadFile = async (file) => {
-    const formData = new FormData()
-    formData.append('file', file)
 
     try {
-      const response = await axios.post('http://localhost:3000/upload', formData)
-      status.value = 'Archivo subido correctamente'
+      const formData = new FormData();
+      formData.append('image', file);
+
+      const response = await axios.post('http://localhost:3000/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+
+      status.value = 'Archivo subido correctamente';
       return response.data;
     } catch (error) {
-      status.value = 'Error al subir el archivo'
-      throw error
+      status.value = 'Error al subir el archivo';
+      throw error;
     }
   }
 

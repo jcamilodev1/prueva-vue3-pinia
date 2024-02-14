@@ -1,5 +1,5 @@
 <template>
-  <button class="button" type="button" @click="$emit('uploadImage')">Upload</button>
+  <button class="button" type="button">Upload</button>
 </template>
 
 <script setup></script>

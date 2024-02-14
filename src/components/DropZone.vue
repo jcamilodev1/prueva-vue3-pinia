@@ -52,7 +52,8 @@ const onFileSelect = (event) => {
     if (!images.value.some((e) => e.name === files[i].name)) {
       images.value.push({
         name: files[i].name,
-        url: URL.createObjectURL(files[i])
+        url: URL.createObjectURL(files[i]),
+        file: files[i]
       })
     }
   }
@@ -68,7 +69,8 @@ const onDrop = (event) => {
     if (!images.value.some((e) => e.name === files[i].name)) {
       images.value.push({
         name: files[i].name,
-        url: URL.createObjectURL(files[i])
+        url: URL.createObjectURL(files[i]),
+        file: files[i]
       })
     }
   }

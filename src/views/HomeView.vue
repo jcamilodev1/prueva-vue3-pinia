@@ -2,7 +2,7 @@
   <section class="main">
     <DropZone v-model="images" />
     <DropContainer :images="images" />
-    <DropButton @upload-image="handleUpload" />
+    <DropButton @click="handleUpload" />
   </section>
 </template>
 
@@ -19,7 +19,7 @@ const images = ref([])
 const handleUpload = async () => {
   try {
     const file = images.value
-    await imageStore.uploadFile(file)
+    await imageStore.uploadFile(file[0].file)
     const response = imageStore.response
 
     console.log('Respuesta:', response)
